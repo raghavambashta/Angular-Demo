@@ -1,0 +1,27 @@
+<!--Adding Service-->
+<h2>{{ myname }}</h2>
+<!-- adding service from movieservice to display hello Jerry.
+Jerry obtained from firstcomponent.component.ts -->
+
+<p>name is {{ name }}</p>
+<p>age is {{ age }}</p>
+<p>add is {{ add() }}</p>
+<p>{{ age > 20 ? "eligible" : "not eligible" }}</p>
+<br />
+<br />
+<br />
+
+<h3>Binding Property</h3>
+<input type="text" [value]="city" /><br />
+<input type="button" [value]="city" /><br />
+<input type="button" value="Click" [disabled]="age > 25 ? true : false" />
+<br /><br />
+<input type="checkbox" [checked]="mstatus" /> Married/Unmarried <br /><br />
+<input type="button" value="Show" (click)="Show()" />
+<br /><br />
+<h2>Two way binding</h2>
+<h3>
+  to import ngModel, to use two way binding we need ngModel for which we need to
+  import FormsModule
+</h3>
+<input type="text" [(ngModel)]="name" />

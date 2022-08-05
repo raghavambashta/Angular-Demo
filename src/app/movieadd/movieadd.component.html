@@ -1,0 +1,72 @@
+<h2>Adding Movie</h2>
+<form #movieform="ngForm" (ngSubmit)="SaveData(moviedata)">
+  <div>
+    <label for="id">Enter ID:</label>
+    <input
+      type="text"
+      id="id"
+      name="id"
+      [(ngModel)]="moviedata.id"
+      #id="ngModel"
+      required
+    />
+    <div *ngIf="id.invalid && (id.touched || id.dirty)" style="color: red">
+      <div *ngIf="id.errors?.['required']">Id cannot be blank</div>
+    </div>
+  </div>
+  <div>
+    <label for="name">Enter Name:</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      [(ngModel)]="moviedata.name"
+      #name="ngModel"
+      required
+    />
+    <div
+      *ngIf="name.invalid && (name.touched || name.dirty)"
+      style="color: red"
+    >
+      <div *ngIf="name.errors?.['required']">Name is required</div>
+    </div>
+  </div>
+  <div>
+    <label for="year">Enter Year:</label>
+    <input
+      type="text"
+      id="year"
+      name="year"
+      [(ngModel)]="moviedata.year"
+      #year="ngModel"
+    />
+  </div>
+  <div>
+    <label for="rating">Enter Rating:</label>
+    <input
+      type="range"
+      id="rating"
+      name="rating"
+      [(ngModel)]="moviedata.rating"
+      #rating="ngModel"
+      range
+      min="1"
+      max="5"
+    />
+    <div
+      *ngIf="rating.invalid && (rating.touched || rating.dirty)"
+      style="color: red"
+    >
+      <div *ngIf="rating.errors?.['range']">Rating value between 1 and 5</div>
+    </div>
+  </div>
+  <br /><br />
+  <p>
+    <input
+      type="submit"
+      value="Save"
+      style="background-color: rgb(213, 148, 110); width: 100px; height: 25px"
+      [disabled]="!movieform.valid"
+    />
+  </p>
+</form>
